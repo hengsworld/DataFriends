@@ -5,11 +5,14 @@ library(ggplot2)
 survey <- read.csv("data/survey.csv")
 
 server <- function(input, output){
+  # Bar graph output for bar tab
   output$bar <- renderPlot({
+    
     xColumns <- input$xInput
     # Plot graph
-    ggplot(survey, aes(survey[,xColumns])) + geom_bar(aes(fill = mental_health_consequence), position = "stack") + xlab(input$xInput) + ggtitle(paste(input$xInput, "in survey dataset")) + labs(fill="Mental Health Consequences?")
+    ggplot(survey, aes(survey[,xColumns])) + geom_bar(aes(fill = mental_health_consequence), position = "stack") + xlab(paste(input$xInput, "?", sep = "")) + ggtitle(paste(input$xInput, "in survey dataset")) + labs(fill="Mental Health Consequences?") + theme_classic()
     
-  })
+  })#, output$sentiment <- renderPlot({}), output$XXXX <- renderXXXX({})
+  
 }
 

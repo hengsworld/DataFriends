@@ -12,7 +12,7 @@ fluidPage(
   
   tabsetPanel(
     # Introduction tab. Reads text from 'intro.txt'.
-    tabPanel("Introduction", h2("Introduction"), p(introText)),
+    tabPanel("Introduction", h2("Introduction"), introText),
     
     # Displays 
     tabPanel("Bar Graphs", sidebarLayout(

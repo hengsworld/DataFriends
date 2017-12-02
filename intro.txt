@@ -1,7 +1,5 @@
-Sample text to test the input of this file
+The data we are working with is Mental Health in Tech industry. This data was collected by Open Sourcing Mental Illness, LTD, and aims to measure attitude, frequency and disorders within the workplace. This is an ongoing survey since 2016.
 
+The target audience are people in tech industries who want to understand the trend of mental health and see how the majority of the people are handling mental illness. This data is also helpful for those who are looking to transition into the tech industry by making sure that it is the right environment for them. 
 
-some spaces
-
-
-//asdf random bs...
+a(href="https://www.kaggle.com/osmi/mental-health-in-tech-survey", "GitHub")
