@@ -22,16 +22,19 @@ fluidPage(
                               mainPanel(plotOutput("bar"))
                           )
     ),
-<<<<<<< HEAD
+
     tabPanel("Age Graphs", sidebarLayout(
                               #Input
                               sidebarPanel(),
                               mainPanel(),
     )),
-=======
+
     
     # Sentiment Analysis
->>>>>>> fb1202e67800389c2af2e2af9b326b79bdbbdbeb
+
+    
+    # Sentiment Analysis
+
     tabPanel("Sentiment Analysis", "contents")),
     
   # GitHub link
