@@ -1,4 +1,5 @@
 library(shiny)
+
 library(ggplot2)
 
 survey <- read.csv("data/survey.csv")
@@ -12,3 +13,4 @@ server <- function(input, output){
     
   })
 }
+
