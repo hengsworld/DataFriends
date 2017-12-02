@@ -1,6 +1,7 @@
 library(shiny)
 library(readr)
 
+
 # Variables 
 survey <- read.csv("data/survey.csv")
 introText <- read_file("intro.txt")
@@ -12,12 +13,14 @@ fluidPage(
   
   tabsetPanel(
     # Introduction tab. Reads text from 'intro.txt'.
-    tabPanel("Introduction", h2("Introduction"), introText),
+    tabPanel("Introduction", h2("Introduction"), p(introText), 
+             a(href="https://www.kaggle.com/osmi/mental-health-in-tech-survey", "Kaggle: Mental Health in Tech Survey"), br()
+             ),
     
     # Displays 
     tabPanel("Bar Graphs", sidebarLayout(
                               # Input
-                              sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'remote_work')),
+                              sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
                               # Output
                               mainPanel(plotOutput("bar"))
                           )
@@ -38,7 +41,7 @@ fluidPage(
     tabPanel("Sentiment Analysis", "contents")),
     
   # GitHub link
-  a(href="https://github.com/hengsworld/DataFriends", "GitHub")
+  hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
 )
 
 
