@@ -1,4 +1,4 @@
-# Introduction: 
+# Introduction:
 
 ## Data
 
@@ -6,7 +6,7 @@ The data we are working with is Mental Health in Tech industry. This data was co
 
 Dataset: https://www.kaggle.com/osmi/mental-health-in-tech-survey
 
-![OSMI logo](osmi-logo-big.png "Logo Title Text 1")
+![OSMI logo](imgs/osmi-logo-big.png "Logo Title Text 1")
 
 
 ## Audience
