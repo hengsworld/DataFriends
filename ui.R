@@ -22,10 +22,21 @@ fluidPage(
                               mainPanel(plotOutput("bar"))
                           )
     ),
+
+    tabPanel("Age Graphs", sidebarLayout(
+                              #Input
+                              sidebarPanel(),
+                              mainPanel(),
+    )),
+
     
     # Sentiment Analysis
+
+    
+    # Sentiment Analysis
+
     tabPanel("Sentiment Analysis", "contents")),
-  
+    
   # GitHub link
   a(href="https://github.com/hengsworld/DataFriends", "GitHub")
 )
