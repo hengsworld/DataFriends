@@ -4,7 +4,6 @@ library(readr)
 
 # Variables 
 survey <- read.csv("data/survey.csv")
-introText <- read_file("intro.txt")
 
 # UI
 fluidPage(
@@ -13,9 +12,7 @@ fluidPage(
   
   tabsetPanel(
     # Introduction tab. Reads text from 'intro.txt'.
-    tabPanel("Introduction", h2("Introduction"), p(introText), 
-             a(href="https://www.kaggle.com/osmi/mental-health-in-tech-survey", "Kaggle: Mental Health in Tech Survey"), br()
-             ),
+    tabPanel("Introduction", includeMarkdown("INTRO.md")),
     
     # Displays 
     tabPanel("Bar Graphs", sidebarLayout(

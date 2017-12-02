@@ -6,6 +6,8 @@ survey <- read.csv("data/survey.csv")
 
 server <- function(input, output){
   # Bar graph output for bar tab
+  
+  output$intro <- renderText({""})
   output$bar <- renderPlot({
     
     xColumns <- input$xInput
