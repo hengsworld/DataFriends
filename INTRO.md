@@ -1,10 +1,13 @@
-# Introduction
-Mental Health in the Tech Industry
+# Introduction: 
 
 ## Data
 
 The data we are working with is Mental Health in Tech industry. This data was collected by Open Sourcing Mental Illness, LTD, and aims to measure attitude, frequency and disorders within the workplace. This is an ongoing survey since 2016.
+
 Dataset: https://www.kaggle.com/osmi/mental-health-in-tech-survey
+
+![OSMI logo](osmi-logo-big.png "Logo Title Text 1")
+
 
 ## Audience
 
@@ -13,7 +16,7 @@ The target audience are people in tech industries who want to understand the tre
 ## Questions
 
 * How many people are willing to discuss mental health issues with their direct supervisor?
-		Does age, gender, or state affect their willingness to discuss?
+* Does age, gender, or state affect their willingness to discuss?
 * Does their employer provide resources to learn more about mental health issues and how to seek help?
 * Does your employer provide mental health benefits?
 * How many people took the survey?
