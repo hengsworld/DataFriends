@@ -16,17 +16,22 @@ fluidPage(
     
     # Displays 
     tabPanel("Bar Graphs", sidebarLayout(
-                              # Input
-                              sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
-                              # Output
-                              mainPanel(plotOutput("bar"))
-                          )
-    ),
+      # Input
+      sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
+      # Output
+      mainPanel(plotOutput("bar"))
+    )),
 
     tabPanel("Age Graphs", sidebarLayout(
                               #Input
                               sidebarPanel(),
                               mainPanel(),
+    )),
+    
+    tabPanel("Maps", verticalLayout(
+      #Input
+      h3("Percentage of Responders that Experience Mental Health Consequences"),
+      plotOutput("mental_health_map")
     )),
 
     
