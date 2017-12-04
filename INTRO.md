@@ -39,6 +39,7 @@ This dataset contains the following data:
 * **mental_vs_physical**: Do you feel that your employer takes mental health as seriously as physical health?
 * **obs_consequence**: Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?
 * **comments**: Any additional notes or comments
+
 ## Audience
 
 The target audience are people in tech industries who want to understand the trend of mental health and see how the majority of the people are handling mental illness. This data is also helpful for those who are looking to transition into the tech industry by making sure that it is the right environment for them.
