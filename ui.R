@@ -26,7 +26,7 @@ fluidPage(
     tabPanel("Age Graphs", sidebarLayout(
                               #Input
                               sidebarPanel(),
-                              mainPanel(),
+                              mainPanel()
     )),
     
     tabPanel("Maps", verticalLayout(
@@ -41,8 +41,8 @@ fluidPage(
     
     # Sentiment Analysis
 
-    tabPanel("Sentiment Analysis", "contents")),
-    
+    tabPanel("Sentiment Analysis", hr(), a(href="https://github.com/hengsworld/DataFriends", "Microsoft Text Analytics using text extraction and sentiment analysis "))),
+  
   # GitHub link
   hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
 )
