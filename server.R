@@ -56,5 +56,7 @@ server <- function(input, output){
       theme(axis.text = element_blank())
       
   })
+  
+  output$data_table <- renderTable({head(survey, 20)})
 }
 

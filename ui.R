@@ -35,13 +35,13 @@ fluidPage(
       plotOutput("mental_health_map")
     )),
 
-    
-    # Sentiment Analysis
-
-    
-    # Sentiment Analysis
-
-    tabPanel("Sentiment Analysis", hr(), a(href="https://github.com/hengsworld/DataFriends", "Microsoft Text Analytics using text extraction and sentiment analysis "))),
+    tabPanel("Sentiment Analysis", hr(), a(href="https://github.com/hengsworld/DataFriends", "Microsoft Text Analytics using text extraction and sentiment analysis ")),
+    tabPanel("Data", verticalLayout(
+      #Input
+      h3("Mental Health in Tech Survey"),
+      h4("Open Sourcing Mental Illness, LTD"), hr(),
+      tableOutput("data_table")
+    ))),
   
   # GitHub link
   hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
