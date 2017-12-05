@@ -34,11 +34,10 @@ fluidPage(
       h3("Percentage of Responders that Experience Mental Health Consequences"),
       plotOutput("mental_health_map")
     )),
-
-    tabPanel("Sentiment Analysis", hr(), a(href="https://github.com/hengsworld/DataFriends", "Microsoft Text Analytics using text extraction and sentiment analysis ")),
     tabPanel("Findings", includeMarkdown("FINDINGS.md")),
+    tabPanel("Sentiment Analysis", hr(), a(href="https://app.powerbi.com/groups/me/dashboards/a8af9c92-2520-4e35-bdb8-fda51253afb0", "Microsoft Text Analytics using text extraction and sentiment analysis ")),
     tabPanel("Data", verticalLayout(
-      #Input
+      #Inputs
       h3("Mental Health in Tech Survey"),
       h4("Open Sourcing Mental Illness, LTD"), hr(),
       tableOutput("data_table")
