@@ -22,7 +22,7 @@ fluidPage(
                      selectInput("xInputColors", label = "Choose a variable for colors to represent:", choices = names(survey), selected = 'mental_health_consequence')),
         # Output
         mainPanel(plotOutput("bar"))
-    ), hr(), h3("Descriptive Name for This Visualization"),
+    ), hr(), h3("Qualitative data trends in the Tech Workspace"),
       sidebarLayout(
         #Input
         sidebarPanel(

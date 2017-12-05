@@ -59,18 +59,18 @@ server <- function(input, output){
   output$data_table <- renderTable({head(survey, 20)})
   
   output$vx <- renderUI({
-    selectInput("vx", "select the first (y) variable", choices = c("Self-employed"="self_employed", "Remote Work"="remote_work", "Work interference"="work_interfere", "Benefits"="benefits", "Care options"= "care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help", "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physicla health consequences?"="physical_health_consequence", "Coworkers"="coworkers", "Mental health interview?"="mental_health_interview", "Physical health interview?"="physical_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
+    selectInput("vx", "Choose a variable to display on the x-axis:", choices = c("Self-employed"="self_employed", "Remote Work"="remote_work", "Work interference"="work_interfere", "Benefits"="benefits", "Care options"= "care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help", "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physicla health consequences?"="phys_health_consequence", "Coworkers"="coworkers", "Supervisor"="supervisor", "Mental health interview?"="mental_health_interview", "Physical health interview?"="phys_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
   })
   
   output$vy <- renderUI({
-    selectInput("vy", "select the first (x) variable", choices = c("Self-employed"="self_employed", "Work interference"= "work_interfere", "Remote Work"="remote_work", "Benefits"="benefits", "Care options"="care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help", "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physical health consequences?"="physical_health_consequence", "Coworkers"="coworkers", "Mental health interview?"="mental_health_interview", "Physical health interview?"="physical_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
+    selectInput("vy", "Choose a variable for colors to represent:", choices = c("Self-employed"="self_employed", "Work interference"= "work_interfere", "Remote Work"="remote_work", "Benefits"="benefits", "Care options"="care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help",  "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physical health consequences?"="phys_health_consequence", "Coworkers"="coworkers", "Supervisor"="supervisor", "Mental health interview?"="mental_health_interview", "Physical health interview?"="phys_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
   })
   
   output$p <- renderPlot({
     ggplot(survey) + 
-      geom_bar(mapping = aes(x=survey[,input$vy], fill = survey[,input$vx]), position = "dodge") + 
-      labs(x=input$vy, fill=paste0(input$vx,"?")) + 
-      ggtitle("Qualitative data relationships in a tech workplace setting") +
+      geom_bar(mapping = aes(x=survey[,input$vx], fill = survey[,input$vy]), position = "dodge") + 
+      labs(x=input$vx, fill=paste0(input$vy,"?")) + 
+      ggtitle(paste(input$vy, "in", input$vx, "dataset")) +
       theme_classic() + 
       theme(text = element_text(size=14),axis.text.x = element_text(angle=30, hjust=1)) 
   })
