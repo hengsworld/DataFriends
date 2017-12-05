@@ -59,18 +59,18 @@ server <- function(input, output){
   output$data_table <- renderTable({head(survey, 20)})
   
   output$vx <- renderUI({
-    selectInput("vx", "select the first (y) variable", choices = c("Work Interference"="work_interfere"))
+    selectInput("vx", "select the first (y) variable", choices = c("Self-employed"="self_employed", "Remote Work"="remote_work", "Work interference"="work_interfere", "Benefits"="benefits", "Care options"= "care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help", "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physicla health consequences?"="physical_health_consequence", "Coworkers"="coworkers", "Mental health interview?"="mental_health_interview", "Physical health interview?"="physical_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
   })
   
   output$vy <- renderUI({
-    selectInput("vy", "select the first (x) variable", choices = c("Self-employed"="self_employed", "Family history"="family_history", "Treatment"="treatment", "Remote Work"="remote_work", "Benefits"="benefits"))
+    selectInput("vy", "select the first (x) variable", choices = c("Self-employed"="self_employed", "Work interference"= "work_interfere", "Remote Work"="remote_work", "Benefits"="benefits", "Care options"="care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help", "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physical health consequences?"="physical_health_consequence", "Coworkers"="coworkers", "Mental health interview?"="mental_health_interview", "Physical health interview?"="physical_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
   })
   
   output$p <- renderPlot({
     ggplot(survey) + 
       geom_bar(mapping = aes(x=survey[,input$vy], fill = survey[,input$vx]), position = "dodge") + 
-      labs(x=input$vy, fill=input$vx) + 
-      ggtitle("Qualitative relationships in dataset") +
+      labs(x=input$vy, fill=paste0(input$vx,"?")) + 
+      ggtitle("Qualitative data relationships in a tech workplace setting") +
       theme_classic() + 
       theme(text = element_text(size=14),axis.text.x = element_text(angle=30, hjust=1)) 
   })
