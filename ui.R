@@ -16,17 +16,21 @@ fluidPage(
     
     # Displays 
     tabPanel("Bar Graphs", verticalLayout(h3("Survey Categories and Mental Health Consequences"),
-      sidebarLayout(
-        # Input
-        sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
-        # Output
-        mainPanel(plotOutput("bar"))
-    ))),
-
-    tabPanel("Age Graphs", sidebarLayout(
+                                          sidebarLayout(
+                                            # Input
+                                            sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
+                                            # Output
+                                            mainPanel(plotOutput("bar"))
+                                          ))),
+    
+    tabPanel("Dynamic user interface - RenderUI", sidebarLayout(
       #Input
-      sidebarPanel(),
-      mainPanel()
+      sidebarPanel(
+        uiOutput("vx"),
+        br(),
+        uiOutput("vy")),
+      mainPanel(
+        plotOutput("p")),
     )),
     
     tabPanel("Maps", verticalLayout(
@@ -46,5 +50,8 @@ fluidPage(
   # GitHub link
   hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
 )
+
+
+
 
 
