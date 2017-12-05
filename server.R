@@ -22,6 +22,7 @@ nullStates <- nullStates %>% as_data_frame(stringsAsFactors=FALSE)
 nullStates<- filter(nullStates, !(nullStates$region %in% usaSubset$region))
 # Combining tables
 usaSubset <- bind_rows(usaSubset, nullStates)
+
 # Define map data
 st <- map_data("state")
 

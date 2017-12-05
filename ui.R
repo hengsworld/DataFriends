@@ -24,9 +24,9 @@ fluidPage(
     ))),
 
     tabPanel("Age Graphs", sidebarLayout(
-                              #Input
-                              sidebarPanel(),
-                              mainPanel()
+      #Input
+      sidebarPanel(),
+      mainPanel()
     )),
     
     tabPanel("Maps", verticalLayout(
@@ -36,6 +36,7 @@ fluidPage(
     )),
 
     tabPanel("Sentiment Analysis", hr(), a(href="https://github.com/hengsworld/DataFriends", "Microsoft Text Analytics using text extraction and sentiment analysis ")),
+    tabPanel("Findings", includeMarkdown("FINDINGS.md")),
     tabPanel("Data", verticalLayout(
       #Input
       h3("Mental Health in Tech Survey"),
