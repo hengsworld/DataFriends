@@ -3,7 +3,7 @@ library(readr)
 
 
 # Variables 
-survey <- read.csv("data/survey.csv")
+survey <- read.csv("data/FilteredData.csv")
 
 # UI
 fluidPage(
@@ -15,34 +15,32 @@ fluidPage(
     tabPanel("Introduction", includeMarkdown("INTRO.md")),
     
     # Displays 
-    tabPanel("Bar Graphs", verticalLayout(h3("Survey Categories and Mental Health Consequences"),
-      sidebarLayout(
-        # Input
-        sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
-        # Output
-        mainPanel(plotOutput("bar"))
-    ))),
+    tabPanel("Bar Graphs", sidebarLayout(
+                              # Input
+                              sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis.", choices = names(survey), selected = 'supervisor')),
+                              # Output
+                              mainPanel(plotOutput("bar"))
+                          )
+    ),
 
-    tabPanel("Age Graphs", sidebarLayout(
+    tabPanel("Dynamic user interface - RenderUI", sidebarLayout(
                               #Input
-                              sidebarPanel(),
-                              mainPanel()
-    )),
-    
-    tabPanel("Maps", verticalLayout(
-      #Input
-      h3("Percentage of Responders that Experience Mental Health Consequences"),
-      plotOutput("mental_health_map")
+                              sidebarPanel(
+                                uiOutput("vx"),
+                                br(),
+                                uiOutput("vy")),
+                              mainPanel(
+                                plotOutput("p")),
     )),
 
-    tabPanel("Sentiment Analysis", hr(), a(href="https://github.com/hengsworld/DataFriends", "Microsoft Text Analytics using text extraction and sentiment analysis ")),
-    tabPanel("Data", verticalLayout(
-      #Input
-      h3("Mental Health in Tech Survey"),
-      h4("Open Sourcing Mental Illness, LTD"), hr(),
-      tableOutput("data_table")
-    ))),
-  
+    
+    # Sentiment Analysis
+
+    
+    # Sentiment Analysis
+
+    tabPanel("Sentiment Analysis", "contents")),
+    
   # GitHub link
   hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
 )
