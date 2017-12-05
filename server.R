@@ -32,13 +32,12 @@ server <- function(input, output){
   
   output$bar <- renderPlot({
     
-    xColumns <- input$xInput
     # Plot graph
-    ggplot(survey, aes(survey[,xColumns])) + 
-      geom_bar(aes(fill = mental_health_consequence), position = "stack") + 
+    ggplot(survey, aes(survey[,input$xInput])) + 
+      geom_bar(aes(fill = survey[,input$xInputColors]), position = "stack") + 
       xlab(paste(input$xInput, "?", sep = "")) + 
       ggtitle(paste(input$xInput, "in survey dataset")) + 
-      labs(fill="Mental Health Consequences?") + 
+      labs(fill=paste(input$xInputColors, "?", sep = "")) + 
       theme_classic() + 
       theme(text = element_text(size=14),axis.text.x = element_text(angle=30, hjust=1)) 
     
