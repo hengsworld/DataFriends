@@ -40,7 +40,6 @@ server <- function(input, output){
       labs(fill=paste(input$xInputColors, "?", sep = "")) + 
       theme_classic() + 
       theme(text = element_text(size=14),axis.text.x = element_text(angle=30, hjust=1)) 
-    
   })
   
   output$mental_health_map <- renderPlot({
@@ -54,9 +53,21 @@ server <- function(input, output){
       theme(panel.background = element_blank()) +
       theme(axis.ticks = element_blank()) +
       theme(axis.text = element_blank())
-      
+    
   })
   
   output$data_table <- renderTable({head(survey, 20)})
+  
+  output$vx <- renderUI({
+    selectInput("vx", "select the first (y) variable", choices = c("Work Interference"="work_interfere"))
+  })
+  
+  output$vy <- renderUI({
+    selectInput("vy", "select the first (x) variable", choices = c("Self-employed"="self_employed", "Family history"="family_history", "Treatment"="treatment", "Remote Work"="remote_work", "Benefits"="benefits"))
+  })
+  
+  output$p <- renderPlot({
+    ggplot(survey) + geom_bar(mapping = aes(x=survey[,input$vy], fill = survey[,input$vx]), position = "dodge") + labs(x=input$vy, fill=input$vx) + ggtitle("Qualitative relationships in dataset")
+  })
 }
 

@@ -1,7 +1,6 @@
 library(shiny)
 library(readr)
 
-
 # Variables 
 survey <- read.csv("data/survey.csv")
 
@@ -16,19 +15,24 @@ fluidPage(
     
     # Displays 
     tabPanel("Bar Graphs", verticalLayout(h3("Survey Categories and Mental Health Consequences"),
+
       sidebarLayout(
         # Input
         sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis:", choices = names(survey), selected = 'supervisor'),
                      selectInput("xInputColors", label = "Choose a variable for colors to represent:", choices = names(survey), selected = 'mental_health_consequence')),
         # Output
         mainPanel(plotOutput("bar"))
+    ), hr(), h3("Descriptive Name for This Visualization"),
+      sidebarLayout(
+        #Input
+        sidebarPanel(
+          uiOutput("vx"),
+          br(),
+          uiOutput("vy")),
+        mainPanel(plotOutput("p"))
     ))),
+    
 
-    tabPanel("Age Graphs", sidebarLayout(
-      #Input
-      sidebarPanel(),
-      mainPanel()
-    )),
     
     tabPanel("Maps", verticalLayout(
       #Input
@@ -47,5 +51,3 @@ fluidPage(
   # GitHub link
   hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
 )
-
-
