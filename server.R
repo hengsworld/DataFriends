@@ -67,7 +67,12 @@ server <- function(input, output){
   })
   
   output$p <- renderPlot({
-    ggplot(survey) + geom_bar(mapping = aes(x=survey[,input$vy], fill = survey[,input$vx]), position = "dodge") + labs(x=input$vy, fill=input$vx) + ggtitle("Qualitative relationships in dataset")
+    ggplot(survey) + 
+      geom_bar(mapping = aes(x=survey[,input$vy], fill = survey[,input$vx]), position = "dodge") + 
+      labs(x=input$vy, fill=input$vx) + 
+      ggtitle("Qualitative relationships in dataset") +
+      theme_classic() + 
+      theme(text = element_text(size=14),axis.text.x = element_text(angle=30, hjust=1)) 
   })
 }
 
