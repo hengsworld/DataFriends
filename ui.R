@@ -31,9 +31,7 @@ fluidPage(
           uiOutput("vy")),
         mainPanel(plotOutput("p"))
     ))),
-    
-
-    
+  
     tabPanel("Maps", verticalLayout(
       #Input
       h3("Percentage of Responders that Experience Mental Health Consequences"),
