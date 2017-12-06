@@ -1,5 +1,10 @@
 library(shiny)
 library(readr)
+library(maps)
+library(dplyr)
+library(ggplot2)
+library(mapproj)
+library(markdown)
 
 # Variables 
 survey <- read.csv("data/survey.csv")

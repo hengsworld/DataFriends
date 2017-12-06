@@ -1,6 +1,11 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(readr)
+library(maps)
+library(mapproj)
+library(markdown)
+
 source("wrangleStateData.R")
 
 # Variables
