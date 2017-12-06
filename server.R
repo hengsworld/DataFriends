@@ -56,5 +56,37 @@ server <- function(input, output){
       theme_classic() + 
       theme(text = element_text(size=14),axis.text.x = element_text(angle=30, hjust=1)) 
   })
+  
+  # Button is clicked, add it to the table
+  commentSubmit <- eventReactive(input$commentButton, {
+    # get the current data frame
+    commentFrame <- read.csv(file="data/comments.csv", stringsAsFactors = FALSE)
+    
+    # add new data
+    name <- input$nameInput
+    comment <- input$commentInput
+    commentFrame[nrow(commentFrame) + 1 ,] = c(nrow(commentFrame) + 1, name, comment)
+    
+    # write to the file
+    write.csv(commentFrame, file = "data/comments.csv", row.names=FALSE)
+    return("You have added a new comment. Please hit refresh to view new changes")
+  })
+  
+  # Update the text to reflect the button click
+  output$textOutput <- renderPrint({
+    return(commentSubmit())
+  })
+  
+  # Calls the refresh method below
+  output$comment_table <- renderTable({
+    refreshComments()
+  })
+  
+  # Once refresh button is clicked, reload the csv file
+  refreshComments <- eventReactive(input$refreshButton, {
+    refresh <- read.csv(file="data/comments.csv", stringsAsFactors = FALSE)
+    return(refresh)
+  })
+  
 }
 
