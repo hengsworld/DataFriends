@@ -34,8 +34,9 @@ fluidPage(
   
     tabPanel("Maps", verticalLayout(
       #Input
-      h3("Percentage of Responders that Experience Mental Health Consequences"),
-      plotOutput("mental_health_map")
+      h3("Ratio of 'Yes' to 'No' Responses by State" ),
+      sidebarLayout(sidebarPanel(selectInput("mapInput", label = "Choose a column to calculate ratio for:", choices = names(survey), selected = 'mental_health_consequence')),
+                    mainPanel(plotOutput("mental_health_map")))
     )),
     tabPanel("Findings", includeMarkdown("FINDINGS.md")),
     tabPanel("Sentiment Analysis", hr(), a(href="https://app.powerbi.com/groups/me/dashboards/a8af9c92-2520-4e35-bdb8-fda51253afb0", "Microsoft Text Analytics using text extraction and sentiment analysis ")),

@@ -1,6 +1,8 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+source("wrangleStateData.R")
+
 
 # Variables
 survey <- read.csv("data/survey.csv")
@@ -45,7 +47,7 @@ server <- function(input, output){
   output$mental_health_map <- renderPlot({
     ggplot() + 
       geom_map(data=st, map=st, aes(x=long, y=lat, map_id=region), fill="#ffffff", color="#ffffff", size=0.15) + 
-      geom_map(data=usaSubset, map=st, aes(fill=mental_health_ratio, map_id=region), color="#ffffff", size=0.15) +
+      geom_map(data=wrangleStateData(input$mapInput), map=st, aes(fill=ratio, map_id=region), color="#ffffff", size=0.15) +
       scale_fill_continuous(low='thistle2', high='darkred', guide='colorbar', na.value="grey48") +
       labs(x=NULL, y=NULL) +
       coord_map("albers", lat0 = 39, lat1 = 45) +
@@ -53,7 +55,6 @@ server <- function(input, output){
       theme(panel.background = element_blank()) +
       theme(axis.ticks = element_blank()) +
       theme(axis.text = element_blank())
-    
   })
   
   output$data_table <- renderTable({head(survey, 20)})
