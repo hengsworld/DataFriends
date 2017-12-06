@@ -3,27 +3,8 @@ library(ggplot2)
 library(dplyr)
 source("wrangleStateData.R")
 
-
 # Variables
 survey <- read.csv("data/survey.csv")
-
-# Map data wrangling
-usaSubset <- survey %>% filter(Country == "United States")
-usaSubset <- usaSubset %>% select(mental_health_consequence, state) %>% filter(mental_health_consequence != 'Maybe') 
-usaSubset <- remove_missing(usaSubset)
-usaSubset <- usaSubset %>% mutate(mentalHealth = (mental_health_consequence == 'Yes'))
-usaSubset <- usaSubset %>% group_by(state) %>% count(mentalHealth == TRUE) %>% group_by(state) %>% mutate('total' = sum(n))
-colnames(usaSubset) <- c("state", "mental_health_consequence", "n", "total")
-usaSubset <-  usaSubset %>% filter(mental_health_consequence == TRUE)
-usaSubset <- usaSubset %>% mutate('mental_health_ratio' = n / total)
-usaSubset <- usaSubset %>% select(-mental_health_consequence)
-usaSubset <- usaSubset %>% mutate('region' = tolower(state.name[match(state, state.abb)]))
-# Adding states will no data to table
-nullStates <- cbind('state'=NA, 'n'=NA, 'total'=NA, 'mental_health_ratio'=NA, 'region'=state.name) %>% tolower()
-nullStates <- nullStates %>% as_data_frame(stringsAsFactors=FALSE)
-nullStates<- filter(nullStates, !(nullStates$region %in% usaSubset$region))
-# Combining tables
-usaSubset <- bind_rows(usaSubset, nullStates)
 
 # Define map data
 st <- map_data("state")
