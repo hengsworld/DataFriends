@@ -46,7 +46,17 @@ fluidPage(
       h3("Mental Health in Tech Survey"),
       h4("Open Sourcing Mental Illness, LTD"), hr(),
       tableOutput("data_table")
-    ))),
+    )),
+    tabPanel("Comment", 
+             #Title
+             h3("Leave a comment about our project below"),
+             textInput("nameInput", label="Enter your name"),
+             textInput("commentInput", label="Enter your comment"),
+             actionButton("commentButton", label="Submit"),
+             actionButton("refreshButton", label="Refresh"),
+             textOutput("textOutput"),
+             tableOutput("comment_table")
+    )),
   
   # GitHub link
   hr(), a(href="https://github.com/hengsworld/DataFriends", "GitHub: DataFriends")
