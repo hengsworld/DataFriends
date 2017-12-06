@@ -1,5 +1,5 @@
 # Findings:
-
+***
 ### Comfort With Supervisor vs. Mental Health Consequences
 
 ![supervisor findings](imgs/supervisorCount.png)
