@@ -18,8 +18,8 @@ fluidPage(
 
       sidebarLayout(
         # Input
-        sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis:", choices = names(survey), selected = 'supervisor'),
-                     selectInput("xInputColors", label = "Choose a variable for colors to represent:", choices = names(survey), selected = 'mental_health_consequence')),
+        sidebarPanel(selectInput("xInput", label = "Choose a variable to display on the x axis:", choices = names(survey[,7:27]), selected = 'supervisor'),
+                     selectInput("xInputColors", label = "Choose a variable for colors to represent:", choices = names(survey[,7:27]), selected = 'mental_health_consequence')),
         # Output
         mainPanel(plotOutput("bar"))
     ), hr(), h3("Qualitative data trends in the Tech Workspace"),
@@ -35,9 +35,10 @@ fluidPage(
     tabPanel("Maps", verticalLayout(
       #Input
       h3("Ratio of 'Yes' to 'No' Responses by State" ),
-      sidebarLayout(sidebarPanel(selectInput("mapInput", label = "Choose a column to calculate ratio for:", choices = names(survey), selected = 'mental_health_consequence')),
-                    mainPanel(plotOutput("mental_health_map")))
-    )),
+      sidebarLayout(sidebarPanel(selectInput("mapInput", label = "Choose a column to calculate ratio for:", choices = names(survey[,7:27]), selected = 'tech_company')),
+                    mainPanel(plotOutput("mental_health_map"))), hr(), tableOutput("proportion_table")
+    
+      )),
     tabPanel("Findings", includeMarkdown("FINDINGS.md")),
     tabPanel("Sentiment Analysis", hr(), a(href="https://app.powerbi.com/groups/me/dashboards/a8af9c92-2520-4e35-bdb8-fda51253afb0", "Microsoft Text Analytics using text extraction and sentiment analysis ")),
     tabPanel("Data", verticalLayout(

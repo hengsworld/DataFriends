@@ -28,17 +28,20 @@ server <- function(input, output){
   output$mental_health_map <- renderPlot({
     ggplot() + 
       geom_map(data=st, map=st, aes(x=long, y=lat, map_id=region), fill="#ffffff", color="#ffffff", size=0.15) + 
-      geom_map(data=wrangleStateData(input$mapInput), map=st, aes(fill=ratio, map_id=region), color="#ffffff", size=0.15) +
+      geom_map(data=wrangleStateData(input$mapInput), map=st, aes(fill=proportion, map_id=region), color="#ffffff", size=0.15) +
       scale_fill_continuous(low='thistle2', high='darkred', guide='colorbar', na.value="grey48") +
-      labs(x=NULL, y=NULL) +
+      labs(x=NULL, y=NULL, fill = "proportion") +
       coord_map("albers", lat0 = 39, lat1 = 45) +
       theme(panel.border = element_blank()) +
       theme(panel.background = element_blank()) +
       theme(axis.ticks = element_blank()) +
-      theme(axis.text = element_blank())
+      theme(axis.text = element_blank()) +
+      ggtitle(paste("Proportion of 'Yes' Responses in", input$mapInput))
   })
   
   output$data_table <- renderTable({head(survey, 20)})
+  
+  output$proportion_table <- renderTable({wrangleStateData(input$mapInput)})
   
   output$vx <- renderUI({
     selectInput("vx", "Choose a variable to display on the x-axis:", choices = c("Self-employed"="self_employed", "Remote Work"="remote_work", "Work interference"="work_interfere", "Benefits"="benefits", "Care options"= "care_options", "Wellness program"="wellness_program", "Resources to seek help?"="seek_help", "Anonymity protected?"="anonymity", "Leave"="leave", "Mental health consequences?"="mental_health_consequence", "Physicla health consequences?"="phys_health_consequence", "Coworkers"="coworkers", "Supervisor"="supervisor", "Mental health interview?"="mental_health_interview", "Physical health interview?"="phys_health_interview", "Mental vs. Physcial"="mental_vs_physical", "Observed consequences?"="obs_consequence"))
