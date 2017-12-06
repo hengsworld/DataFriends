@@ -23,7 +23,7 @@ This visualization provides insight regarding the relationship between self-empl
 In previous observations, we've already seen that individuals who work in the technology industry have a higher chance of experiencing mental health consequences than the national average. The high number of individuals working in tech is represented by the first map, where we can see that the majority of responders work in tech, especially along the coasts.
 
 However, when we observe the ratio between those with care options to those without, it is appears that care options are not appropriately provided in these areas. Some states that have a high risk of having a large population with mental health consequences and no care options include Washington, Oregon, California, Maine, South Dakota, and South Carolina.
-
+***
 ### Remote Work Effects on Mental Health Consequences
 ![remote work findings](imgs/remote_work_vs_mental_health_consequences.png)
 
